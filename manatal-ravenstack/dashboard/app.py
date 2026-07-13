@@ -154,7 +154,7 @@ st.markdown(
         <div class="manatal-logo-badge">M</div>
         <div>
             <div style="font-size:1.5rem; font-weight:800; color:{COLORS['navy']};">RavenStack SaaS Analytics</div>
-            <div class="manatal-subtitle">Product usage, revenue, churn &amp; support impact — Kaggle "RavenStack" dataset, styled for a Manatal Product Analyst interview</div>
+            <div class="manatal-subtitle">Product usage, revenue, churn &amp; support impact using Kaggle "RavenStack" dataset</div>
         </div>
     </div>
     """,
@@ -275,18 +275,18 @@ with tab_overview:
         st.plotly_chart(fig, use_container_width=True)
 
     st.caption(
-        "Interview talking point: this exec-summary view uses the LATEST subscription per account for "
+        "This exec-summary view uses the LATEST subscription per account for "
         "'current plan'/'current MRR', not accounts.plan_tier — see the Data Quality tab for why that distinction matters."
     )
 
 # ---------------- DATA QUALITY ----------------
 with tab_quality:
     st.markdown('<span class="anomaly-tag">Data Structure Ownership &amp; Integrity Checks</span>', unsafe_allow_html=True)
-    st.write(
-        "Maps directly to the JD line: *'Ensure the accuracy, integrity, and timeliness of data, "
-        "implementing measures to identify and rectify any anomalies.'* These are real findings from "
-        "profiling this dataset — not hypothetical examples."
-    )
+    # st.write(
+    #     "Maps directly to the JD line: *'Ensure the accuracy, integrity, and timeliness of data, "
+    #     "implementing measures to identify and rectify any anomalies.'* These are real findings from "
+    #     "profiling this dataset — not hypothetical examples."
+    # )
 
     # Anomaly: churn_flag=True, no churn_events, has active subscription
     active_sub_accounts = set(subs[subs["end_date"].isna()]["account_id"])
